@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.scss';
 import { motion } from 'framer-motion';
-import { Lock, Mail, Eye, EyeOff } from 'lucide-react';
+import swal from 'sweetalert';
+import { Lock, User, Eye, EyeOff } from 'lucide-react';  // Alterei para importar o ícone 'User' para o username
 
 import fundoLogin from '../../assets/fundo_login.mp4';
 
 function Login() {
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: ''
   });
 
@@ -20,11 +21,9 @@ function Login() {
   const validateForm = () => {
     const newErrors = {};
 
-    // Email validation
-    if (!formData.email) {
-      newErrors.email = 'Email é obrigatório';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email inválido';
+    // Username validation
+    if (!formData.username) {
+      newErrors.username = 'Nome de usuário é obrigatório';
     }
 
     // Password validation
@@ -40,15 +39,20 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (validateForm()) {
       setLoading(true);
       // Simulando uma chamada API
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setLoading(false);
-      alert('Login realizado com sucesso!');
+  
+      // Salva o nome de usuário no localStorage
+      localStorage.setItem('username', formData.username); // Armazenando o username
+  
+      window.location.href = '/S';
     }
   };
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -86,18 +90,18 @@ function Login() {
             <div className="form-group mb-4">
               <div className="input-group">
                 <span className="input-group-text">
-                  <Mail size={20} />
+                  <User size={20} /> {/* Alterado para ícone de usuário */}
                 </span>
                 <input
-                  type="email"
-                  className={`form-control ${errors.email ? 'is-invalid' : ''}`}
-                  placeholder="Email"
-                  name="email"
-                  value={formData.email}
+                  type="text"
+                  className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+                  placeholder="Nome de usuário"
+                  name="username"
+                  value={formData.username}
                   onChange={handleChange}
                 />
               </div>
-              {errors.email && <div className="invalid-feedback d-block">{errors.email}</div>}
+              {errors.username && <div className="invalid-feedback d-block">{errors.username}</div>}
             </div>
 
             <div className="form-group mb-4">

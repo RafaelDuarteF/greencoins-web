@@ -8,7 +8,7 @@ function App() {
     <Router>
 
       <Routes>
-        <Route path="/" element={<CryptoLandingPage />} />
+        <Route path="/:isLogged?" element={<CryptoLandingPage />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
