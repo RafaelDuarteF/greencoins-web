@@ -1,9 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const username = localStorage.getItem('username'); // Recupera o nome de usuário
+  const navigate = useNavigate();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark py-3">
@@ -88,7 +90,7 @@ const Navbar = () => {
               {username ? (
                 <span className="nav-link username-logged glow-text">Olá, {username}</span> // Exibe o nome do usuário
               ) : (
-                <a className="nav-link" href="/login">
+                <a className="nav-link" onClick={() => navigate(`/login`)}>
                   Entrar
                 </a>
               )}

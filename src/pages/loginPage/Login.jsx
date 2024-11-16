@@ -7,12 +7,14 @@ import swal from 'sweetalert';
 import { Lock, User, Eye, EyeOff } from 'lucide-react';  // Alterei para importar o ícone 'User' para o username
 
 import fundoLogin from '../../assets/fundo_login.mp4';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   });
+  const navigate = useNavigate();
 
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
@@ -49,7 +51,7 @@ function Login() {
       // Salva o nome de usuário no localStorage
       localStorage.setItem('username', formData.username); // Armazenando o username
   
-      window.location.href = '/S';
+      navigate('/S');
     }
   };
   
