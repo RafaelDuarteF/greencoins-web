@@ -4,3 +4,10 @@ $thirdColor: #1fc245;
 $backgroundPrimaryColor: #000;
 $backgroundSecondaryColor: #000e03;
 $scrollTrackColor: #1f1f1f;
+$danger: #dc3545;
+
+$button-styles: (
+  "success": ($primaryColor, rgba(7, 255, 65, 0.1)),
+  "danger": (#dc3545, rgba(220, 53, 69, 0.1)),
+  "warning": (#ffc107, rgba(255, 193, 7, 0.1))
+);

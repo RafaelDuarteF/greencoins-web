@@ -22,3 +22,18 @@
     z-index: 1;
     @include transition();
 }
+
+// Mixins específicos para a página de login
+@mixin glowing-border {
+    box-shadow: 0 0 15px rgba($primaryColor, 0.3);
+    transition: box-shadow 0.3s ease;
+  
+    &:hover {
+      box-shadow: 0 0 20px rgba($primaryColor, 0.5);
+    }
+  }
+  
+  @mixin floating-animation {
+    animation: floating 6s ease-in-out infinite;
+  }
+  

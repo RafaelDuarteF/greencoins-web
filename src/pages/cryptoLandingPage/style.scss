@@ -2,8 +2,19 @@
 @import '../../utils/mixins';
 @import '../../utils/global';
 
-body {
-  overflow-x: hidden;
+@each $name, $colors in $button-styles {
+  $border-color: nth($colors, 1);
+  $background-color: nth($colors, 2);
+
+  .btn-outline-#{$name} {
+    border-color: $border-color;
+    @include btn-style($background-color, $border-color);
+
+    &:hover {
+      transform: scale(1.02);
+      cursor: pointer;
+    }
+  }
 }
 
 #hero {
@@ -17,8 +28,8 @@ body {
 
   .gradient-overlay {
     position: absolute;
-    width: 40%;
-    height: 40%;
+    width: 50%;
+    height: 50%;
     background: rgba(40, 167, 69, 0.1);
     filter: blur(100px);
     border-radius: 50%;
@@ -51,16 +62,6 @@ body {
 
 .coin {
   @include float-animation();
-}
-
-.btn-outline-success {
-  border-color: $primaryColor;
-  @include btn-style(rgba(7, 255, 65, 0.1), $primaryColor);
-
-  &:hover {
-    transform: scale(1.02);
-    cursor: pointer;
-  }
 }
 
 .green-color {
