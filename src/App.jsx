@@ -8,6 +8,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<CryptoLandingPage />} />
+        <Route path="/login" element={<CryptoLandingPage />} />
       </Routes>
     </Router>
   );

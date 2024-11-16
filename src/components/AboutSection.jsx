@@ -5,7 +5,6 @@ import secondSectionImage from '../assets/second-section-image.jpg';
 import greenCoin from '../assets/greencoin.png';
 
 const AboutSection = () => {
-
   return (
     <>
       <img src={secondSectionImage} alt="Second Section" className="img-fluid" />
@@ -15,8 +14,9 @@ const AboutSection = () => {
           <div className="col-lg-6">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              viewport={{ amount: 0.5 }}
               className="green-color glow-text display-4 fw-bold mb-3"
             >
               Sobre a Criptomoeda
@@ -24,8 +24,9 @@ const AboutSection = () => {
             
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ amount: 0.5 }}
               className="text-light mb-4"
             >
               Entenda sobre.
@@ -33,8 +34,9 @@ const AboutSection = () => {
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ amount: 0.5 }}
               className="text-color-secondary mb-4"
             >
               A Criptomoeda se encontra na rede BNB Chain, uma das blockchains mais eficientes. 
@@ -47,8 +49,9 @@ const AboutSection = () => {
             <div className="d-flex gap-3">
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ amount: 0.5 }}
                 className="btn btn-outline-success px-4 py-2 rounded-pill"
                 onClick={() => window.open('https://bit.ly/4fmG455')}
               >
@@ -57,8 +60,9 @@ const AboutSection = () => {
               
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
+                viewport={{ amount: 0.5 }}
                 className="btn btn-outline-success  px-4 py-2 rounded-pill"
                 onClick={() => window.open('https://bscscan.com/token/0xbd9949be9aff6a500c9b13c3a11174734fad16a8')}
               >
@@ -72,8 +76,9 @@ const AboutSection = () => {
             {/* Main Bitcoin */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
+              viewport={{ amount: 0.5 }}
               className="position-absolute bitcoin-main"
               style={{ right: '10%', top: '20%' }}
             >

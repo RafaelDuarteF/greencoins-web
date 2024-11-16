@@ -1,0 +1,24 @@
+@mixin transition($properties: all, $duration: 0.3s, $easing: ease-in-out) {
+    transition: $properties $duration $easing;
+}
+
+@mixin box-shadow($color: rgba(40, 167, 69, 0.3), $blur: 15px) {
+    box-shadow: 0 0 $blur $color;
+}
+
+@mixin glow($color: rgba(40, 255, 69, 0.5)) {
+    text-shadow: 0 0 10px $color;
+}
+
+@mixin float-animation($duration: 6s) {
+    animation: float $duration ease-in-out infinite;
+}
+
+@mixin btn-style($bg-color, $text-color: #000) {
+    background: $bg-color;
+    color: $text-color;
+    border: 1px solid $primaryColor;
+    position: relative;
+    z-index: 1;
+    @include transition();
+}
