@@ -58,7 +58,7 @@ const Navbar = () => {
               viewport={{ once: true }}
             >
               <a className="nav-link" href="#hero">
-                Home
+                Inicial
               </a>
             </motion.li>
             <motion.li
@@ -92,6 +92,17 @@ const Navbar = () => {
             >
               <a className="nav-link" href="#gallery">
                 Atualizações
+              </a>
+            </motion.li>
+            <motion.li
+              className="nav-item"
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <a className="nav-link" href="#videos">
+                Vídeos
               </a>
             </motion.li>
 

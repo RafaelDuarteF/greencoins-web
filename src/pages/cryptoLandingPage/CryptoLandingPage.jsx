@@ -12,6 +12,7 @@ import TechnicalDetailsSection from '../../components/TechnicalDetailsSection';
 import { useParams } from 'react-router-dom';
 import ImageCarousel from '../../components/CarouselSection';
 import VideoSection from '../../components/VideoSection';
+import Footer from '../../components/Footer';
 
 function CryptoLanding() {
   const { isLogged } = useParams();
@@ -83,6 +84,7 @@ function CryptoLanding() {
       <section id="videos" className="position-relative">
         <VideoSection />
       </section>
+      <Footer />
     </main>
   );
 }
