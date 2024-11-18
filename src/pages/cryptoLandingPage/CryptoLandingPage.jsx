@@ -31,7 +31,7 @@ function CryptoLanding() {
     axios.get('https://api.bscscan.com/api?module=logs&action=getLogs&apikey=73YYMDT87AZZEWXHVRYN77ZU8QBHYJXDP1&address=0xbd9949be9aff6a500c9b13c3a11174734fad16a8&topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef')
       .then((response) => {
         console.log(response.data.result);
-        setTransactions(response.data.result);
+        setTransactions(response.data.result.reverse());
       })
       .catch((error) => {
         console.error(error);
