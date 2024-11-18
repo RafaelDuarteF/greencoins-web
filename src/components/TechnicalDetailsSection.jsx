@@ -139,7 +139,7 @@ function TechnicalDetailsSection({ transactions }) {
                   <h3 className="mb-0 h4 fw-bold text-green">Transações Recentes</h3>
                 </div>
 
-                <div className="d-flex flex-column gap-3">
+                <div className="d-flex flex-column gap-3 transactions-div">
                   {transactions.map((tx, index) => (
                     <motion.div
                       key={tx.transactionHash}
