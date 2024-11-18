@@ -7,6 +7,11 @@ const Navbar = () => {
   const username = localStorage.getItem('username'); // Recupera o nome de usuário
   const navigate = useNavigate();
 
+  const handleRemoveUsername = () => {
+    localStorage.removeItem('username'); // Remove o nome do usuário
+    navigate(`/`); // Redireciona para a página inicial
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark py-3">
       <div className="container">
@@ -78,6 +83,17 @@ const Navbar = () => {
                 Detalhes
               </a>
             </motion.li>
+            <motion.li
+              className="nav-item"
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <a className="nav-link" href="#gallery">
+                Atualizações
+              </a>
+            </motion.li>
 
             {/* Exibe o nome de usuário ou o link de login */}
             <motion.li
@@ -90,11 +106,26 @@ const Navbar = () => {
               {username ? (
                 <span className="nav-link username-logged glow-text">Olá, {username}</span> // Exibe o nome do usuário
               ) : (
-                <a className="nav-link" onClick={() => navigate(`/login`)}>
-                  Entrar
+                <a className="nav-link nav-link-entrar" onClick={() => navigate(`/login`)}>
+                  <b>Entrar</b>
                 </a>
               )}
             </motion.li>
+            {
+              username ? (
+                <motion.li
+                  className="nav-item"
+                  initial={{ opacity: 0, y: -10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.2 }}
+                  viewport={{ once: true }}
+                >
+                  <a className="nav-link nav-link-sair" onClick={handleRemoveUsername}>
+                    Sair
+                  </a>
+                </motion.li>
+              ) : null
+            }
           </ul>
         </motion.div>
       </div>

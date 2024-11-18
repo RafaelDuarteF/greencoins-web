@@ -10,6 +10,8 @@ import GradientOverlay from '../../components/GradientOverlay';
 import AboutSection from '../../components/AboutSection';
 import TechnicalDetailsSection from '../../components/TechnicalDetailsSection';
 import { useParams } from 'react-router-dom';
+import ImageCarousel from '../../components/CarouselSection';
+import VideoSection from '../../components/VideoSection';
 
 function CryptoLanding() {
   const { isLogged } = useParams();
@@ -68,6 +70,18 @@ function CryptoLanding() {
       </section>
       <section id="details" className="position-relative overflow-hidden">
         <TechnicalDetailsSection transactions={transactions} />
+      </section>
+      <section id="gallery" className="position-relative">
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+          <ImageCarousel />
+        </motion.div>
+      </section>
+      <section id="videos" className="position-relative">
+        <VideoSection />
       </section>
     </main>
   );
