@@ -37,9 +37,9 @@ function TechnicalDetailsSection({ transactions }) {
 
   const cryptoDetails = {
     hash: transactions?.[0]?.address,
-    creationDate: handleHexTimestamp(transactions?.[0]?.timeStamp),
+    creationDate: handleHexTimestamp(transactions?.[transactions.length -1]?.timeStamp),
     totalTransactions: transactions?.length ?? 0,
-    lastBlockHeight: parseInt(transactions?.[transactions.length -1]?.blockNumber , 16) ?? 0,
+    lastBlockHeight: parseInt(transactions?.[0]?.blockNumber , 16) ?? 0,
     consensusAlgorithm: "Proof of Stake (PoS)",
     transactionsPerMonth: transactionsPerMonth,
   };
