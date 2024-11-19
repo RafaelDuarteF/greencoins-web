@@ -13,7 +13,6 @@ import { useParams } from 'react-router-dom';
 import ImageCarousel from '../../components/CarouselSection';
 import VideoSection from '../../components/VideoSection';
 import Footer from '../../components/Footer';
-import axios from 'axios';
 
 function CryptoLanding() {
   const { isLogged } = useParams();
@@ -24,17 +23,22 @@ function CryptoLanding() {
       swal('Logado com sucesso!', 'Seja bem-vindo!', 'success');
       sessionStorage.setItem('welcomeMessageShown', 'true');
     }
-     
   }, [isLogged]);
 
   useEffect(() => {
-    axios.get('https://api.bscscan.com/api?module=logs&action=getLogs&apikey=73YYMDT87AZZEWXHVRYN77ZU8QBHYJXDP1&address=0xbd9949be9aff6a500c9b13c3a11174734fad16a8&topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef')
-      .then((response) => {
-        console.log(response.data.result);
-        setTransactions(response.data.result.reverse());
+    fetch('https://api.bscscan.com/api?module=logs&action=getLogs&apikey=73YYMDT87AZZEWXHVRYN77ZU8QBHYJXDP1&address=0xbd9949be9aff6a500c9b13c3a11174734fad16a8&topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
       })
-      .catch((error) => {
-        console.error(error);
+      .then(data => {
+        console.log(data.result);
+        setTransactions(data.result.reverse());
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
       });
   }, []);
 
