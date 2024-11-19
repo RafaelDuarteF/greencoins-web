@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FloatingCoins from './FloatingCoins';
 import { motion } from 'framer-motion';
+import Scene from './CoinAnimation';
 
 const HeroSection = () => (
   <div className="container py-5">
@@ -34,7 +35,10 @@ const HeroSection = () => (
           SAIBA MAIS
         </motion.button>
       </motion.div>
-      <FloatingCoins coinsCount={6} />
+      {/* <FloatingCoins coinsCount={6} /> */}
+       <div className="col-lg-6">
+        <Scene />
+      </div>
     </div>
   </div>
 );
