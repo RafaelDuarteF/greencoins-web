@@ -32,6 +32,7 @@ const HeroSection = () => (
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ amount: 0.5 }}  // Só anima quando 50% do botão estiver visível
           className="btn btn-outline-success px-4 py-2 rounded-pill"
+          onClick={() => window.location.href = '#sobre'}
         >
           SAIBA MAIS
         </motion.button>

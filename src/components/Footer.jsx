@@ -51,16 +51,48 @@ const Footer = () => {
                 Links Rápidos
               </motion.h5>
               <ul className="list-unstyled links-rapidos">
-                {['Início', 'Sobre', 'Detalhes', 'Galeria', 'Vídeos', 'Login'].map((link, index) => (
                   <motion.li
-                    key={link}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                    transition={{ duration: 0.3, delay: 0.3 + 0 * 0.1 }}
                   >
-                    <a href={`#${link.toLowerCase()}`}>{link}</a>
+                    <a href={`#hero`}>Início</a>
                   </motion.li>
-                ))}
+                  <motion.li
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.3 + 1 * 0.1 }}
+                  >
+                    <a href={`#sobre`}>Sobre</a>
+                  </motion.li>
+                  <motion.li
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.3 + 2 * 0.1 }}
+                  >
+                    <a href={`#details`}>Detalhes</a>
+                  </motion.li>
+                    <motion.li
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.3 + 3 * 0.1 }}
+                  >
+                    <a href={`#gallery`}>Galeria</a>
+                  </motion.li>
+                  <motion.li
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.3 + 4 * 0.1 }}
+                  >
+                    <a href={`#videos`}>Vídeos</a>
+                  </motion.li>
+                  <motion.li
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.3 + 5 * 0.1 }}
+                  >
+                    <a href={`/login`}>Login</a>
+                  </motion.li>
               </ul>
             </Col>
             <Col md={4}>
