@@ -3,20 +3,16 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 
 const Model = () => {
-  // Referência para o modelo
   const modelRef = useRef();
 
-  // Hook para carregar o modelo GLB
-  const { scene } = useGLTF('/animation/GreenCoin3.glb'); // Substitua pelo caminho correto
+  const { scene } = useGLTF('/animation/GreenCoin3.glb'); 
 
-  // Animação de rotação
   useFrame(() => {
     if (modelRef.current) {
-      modelRef.current.rotation.y += 0.01; // Ajuste a velocidade da rotação
+      modelRef.current.rotation.y += 0.01; 
     }
   });
 
-  // Retorna o modelo para renderizar
   return <primitive ref={modelRef} object={scene} scale={3} />;
 };
 

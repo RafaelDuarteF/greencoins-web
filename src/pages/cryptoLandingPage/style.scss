@@ -183,22 +183,29 @@
 
 .coin-div {
   @include transition(transform, 0.25s);
+  filter: drop-shadow(0 0px 15px #23f55460);
+
+  opacity: 85%;
 
   &:hover {
-    transform: scale(1.1) rotate(10deg);
+    transform: scale(1.1);
   }
 }
 
 .img-fluid {
   width: 100%;
   height: 110vh;
-  opacity: 10%;
+  opacity: 20%;
   object-fit: cover;
   position: absolute;
 }
 
 .text-color-secondary {
   color: $secondaryColor;
+}
+
+.text-color-third {
+  color: $textColorWhite;
 }
 
 // About Section

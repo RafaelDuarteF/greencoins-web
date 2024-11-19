@@ -13,6 +13,7 @@ const HeroSection = () => (
         whileInView={{ opacity: 1, x: 0 }}  // Animação quando o componente entrar na viewport
         transition={{ duration: 1 }}
         viewport={{ amount: 0.5 }} // A animação acontece quando 50% do componente estiver visível
+        style={{ zIndex: 10 }}
       >
         <h1 className="display-4 fw-bold mb-4">
           <span className="green-color">GreenCoins:</span><br />
@@ -35,8 +36,8 @@ const HeroSection = () => (
           SAIBA MAIS
         </motion.button>
       </motion.div>
-      {/* <FloatingCoins coinsCount={6} /> */}
-       <div className="col-lg-6">
+      <FloatingCoins coinsCount={6} />
+      <div className="col-lg-6" style={{zIndex: 10}}>
         <Scene />
       </div>
     </div>

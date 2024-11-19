@@ -1,8 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { motion } from 'framer-motion';
-import secondSectionImage from '../assets/second-section-image.jpg';
-import greenCoin from '../assets/greencoin.png';
+import secondSectionImage from '../assets/second-section-image2.png';
+import greenCoin from '../assets/greencoin2.png';
 
 const AboutSection = () => {
   return (
@@ -37,10 +37,12 @@ const AboutSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ amount: 0.5 }}
-              className="text-color-secondary mb-4"
+              className="text-color-third mb-4"
             >
-              A Criptomoeda se encontra na rede BNB Chain, uma das blockchains mais eficientes. 
-              A proposta de Cripto é ser uma moeda sustentável, com baixo consumo de energia e custo operacional. 
+              A Criptomoeda se encontra na rede BNB Chain, uma das blockchains mais eficientes 
+              (<b className='green-color'>diminuição de 99,95%</b> do gasto de eletricidade consumida durante o 
+              processo de validação, comparado com o BitCoin). 
+              A proposta da cripto é ser uma moeda sustentável, com baixo consumo de energia e custo operacional. 
               Usuários podem ganhar GreenCoins através de práticas de sustentabilidade, e a 
               utilizar para investimentos e trocas de produtos sustentáveis, gerando o efeito bola de neve 
               para a sustentabilidade no mundo.
@@ -72,7 +74,7 @@ const AboutSection = () => {
           </div>
 
           {/* Right Content - Bitcoin and floating elements */}
-          <div className="col-lg-6 position-relative" style={{ height: '500px' }}>
+          <div className="col-lg-6 position-relative d-flex align-items-center justify-content-center" style={{ height: '100vh' }}>
             {/* Main Bitcoin */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -80,19 +82,16 @@ const AboutSection = () => {
               transition={{ duration: 0.8 }}
               viewport={{ amount: 0.5 }}
               className="position-absolute bitcoin-main"
-              style={{ right: '10%', top: '20%' }}
+              style={{left: 30}}
             >
-              <div className="rounded-circle bg-success bg-opacity-25 d-flex align-items-center justify-content-center"
-                style={{ width: '200px', height: '200px' }}>
-                <div className="rounded-circle bg-green-color d-flex align-items-center justify-content-center"
-                  style={{ width: '180px', height: '180px', fontSize: '4rem' }}>
+              <div className="bg-opacity-25 d-flex align-items-center justify-content-center"
+                style={{ width: '100%', }}>
+                <div className="d-flex align-items-center justify-content-center"
+                  style={{ width: '100%', fontSize: '4rem' }}>
                   <img className='coin-div' src={greenCoin} alt="GreenCoin" style={{ width: '100%' }} />
                 </div>
               </div>
             </motion.div>
-
-            <div className="curved-line" style={{ top: '20%', right: '30%' }}></div>
-            <div className="curved-line" style={{ bottom: '30%', right: '40%' }}></div>
           </div>
         </div>
       </div>
