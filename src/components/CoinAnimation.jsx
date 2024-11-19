@@ -20,7 +20,7 @@ const Scene = () => {
   return (
     <Canvas
       camera={{ position: [0, 1, 5], fov: 75 }}
-      style={{ width: '100%', height: '60vh' }}
+      className='animation-coin-canva'
     >
       {/* Luzes */}
       <ambientLight intensity={2} />

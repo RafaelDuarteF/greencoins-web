@@ -100,7 +100,7 @@ function TechnicalDetailsSection({ transactions }) {
                     <Hash size={24} className="text-green" />
                     <div>
                       <p className="mb-1 fw-medium text-green">Token Contract Hash</p>
-                      <p className="mb-0 small font-monospace text-gray text-truncate">{cryptoDetails.hash}</p>
+                      <p className="mb-0 small font-monospace text-gray text-truncate" style={{ maxWidth: '80%' }}>{cryptoDetails.hash}</p>
                     </div>
                   </div>
 

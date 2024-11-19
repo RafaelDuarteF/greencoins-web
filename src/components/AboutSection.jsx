@@ -11,7 +11,7 @@ const AboutSection = () => {
       <div className="container">
         <div className="row align-items-center">
           {/* Left Content */}
-          <div className="col-lg-6">
+          <div className="col-lg-6 infos-about-section">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ const AboutSection = () => {
           </div>
 
           {/* Right Content - Bitcoin and floating elements */}
-          <div className="col-lg-6 position-relative d-flex align-items-center justify-content-center" style={{ height: '100vh' }}>
+          <div className="col-lg-6 position-relative d-flex align-items-center justify-content-center greencoin-image">
             {/* Main Bitcoin */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -86,7 +86,7 @@ const AboutSection = () => {
             >
               <div className="bg-opacity-25 d-flex align-items-center justify-content-center"
                 style={{ width: '100%', }}>
-                <div className="d-flex align-items-center justify-content-center"
+                <div className="d-flex align-items-center justify-content-center img-greencoin"
                   style={{ width: '100%', fontSize: '4rem' }}>
                   <img className='coin-div' src={greenCoin} alt="GreenCoin" style={{ width: '100%' }} />
                 </div>

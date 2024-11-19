@@ -20,10 +20,10 @@ const HeroSection = () => (
           <span className="green-color"> A primeira</span>
           <span className="text-white"> Criptomoeda sustentável</span><br />
         </h1>
-        <p className="text-secondary fs-5 mb-3">
+        <p className="text-secondary text-white-hero fs-5 mb-3">
           Experimente o futuro sustentável.
         </p>
-        <p className="text-secondary mb-4">
+        <p className="text-secondary text-white-hero mb-4">
           A GreenCoin é uma moeda com o objetivo de incentivar a sustentabilidade no mundo. Em uma rede da blockchain menos poluente e entregue por práticas sustentáveis, a GreenCoin é a primeira criptomoeda sustentável do mundo.
         </p>
         <motion.button
