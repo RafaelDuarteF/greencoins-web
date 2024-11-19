@@ -7,7 +7,7 @@ const Model = () => {
   const modelRef = useRef();
 
   // Hook para carregar o modelo GLB
-  const { scene } = useGLTF('/animation/GreenCoin2.glb'); // Substitua pelo caminho correto
+  const { scene } = useGLTF('/animation/GreenCoin3.glb'); // Substitua pelo caminho correto
 
   // Animação de rotação
   useFrame(() => {
@@ -27,7 +27,7 @@ const Scene = () => {
       style={{ width: '100%', height: '60vh' }}
     >
       {/* Luzes */}
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={2} />
       <directionalLight position={[10, 10, 10]} intensity={1} />
 
       {/* Modelo e Controles */}
