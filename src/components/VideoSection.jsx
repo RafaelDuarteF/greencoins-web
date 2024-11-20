@@ -16,7 +16,7 @@ const VideoSection = () => {
       thumbnail: videoImage1
     },
     {
-      id: 'VIDEO_ID_2',
+      id: 'kXKUyH3A7LM',
       title: 'Video Pitch - GreenCoins',
       thumbnail: videoImage2
     }
