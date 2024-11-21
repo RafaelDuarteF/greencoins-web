@@ -1,10 +1,9 @@
 // Login.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.scss';
 import { motion } from 'framer-motion';
-import swal from 'sweetalert';
-import { Lock, User, Eye, EyeOff } from 'lucide-react';  // Alterei para importar o ícone 'User' para o username
+import { Lock, User, Eye, EyeOff } from 'lucide-react'; 
 
 import fundoLogin from '../../assets/fundo_login.mp4';
 import { useNavigate } from 'react-router-dom';
@@ -23,12 +22,10 @@ function Login() {
   const validateForm = () => {
     const newErrors = {};
 
-    // Username validation
     if (!formData.username) {
       newErrors.username = 'Nome de usuário é obrigatório';
     }
 
-    // Password validation
     if (!formData.password) {
       newErrors.password = 'Senha é obrigatória';
     } else if (formData.password.length < 6) {
@@ -44,6 +41,7 @@ function Login() {
   
     if (validateForm()) {
       setLoading(true);
+      
       // Simulando uma chamada API
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setLoading(false);

@@ -5,7 +5,7 @@ import { OrbitControls, useGLTF } from '@react-three/drei';
 const Model = () => {
   const modelRef = useRef();
 
-  const { scene } = useGLTF('/animation/GreenCoin3.glb');
+  const { scene } = useGLTF('/3dModel/GreenCoin3.glb');
 
   useFrame(() => {
     if (modelRef.current) {
