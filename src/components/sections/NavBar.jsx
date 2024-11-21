@@ -3,7 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-import logo from '../assets/greencoin.png';
+import logo from '../../assets/greencoin.png';
 
 const Navbar = () => {
   const username = localStorage.getItem('username'); // Recupera o nome de usuário

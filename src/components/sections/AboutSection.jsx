@@ -1,8 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { motion } from 'framer-motion';
-import secondSectionImage from '../assets/second-section-image2.png';
-import greenCoin from '../assets/greencoin2.png';
+import secondSectionImage from '../../assets/second-section-image2.png';
+import greenCoin from '../../assets/greencoin2.png';
 
 const AboutSection = () => {
   return (

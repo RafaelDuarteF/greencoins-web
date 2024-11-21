@@ -140,7 +140,8 @@ const Footer = () => {
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                © 2024 GreenCoins. Todos os direitos reservados.
+                © 2024 GreenCoins. Todos os direitos reservados. 
+                Desenvolvido com 💚 para um futuro sustentável.
               </motion.p>
             </Col>
           </Row>

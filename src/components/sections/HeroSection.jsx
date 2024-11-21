@@ -1,8 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import FloatingCoins from './FloatingCoins';
+import FloatingCoins from '../general/FloatingCoins';
 import { motion } from 'framer-motion';
-import Scene from './CoinAnimation';
+import Scene from '../general/CoinAnimation';
 
 const HeroSection = () => (
   <div className="container py-5">
