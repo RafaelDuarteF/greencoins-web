@@ -2,6 +2,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
+import logo from '../../assets/LogoGreenCoin.png';
+
 const Navbar = () => {
   const username = localStorage.getItem('username'); // Recupera o nome de usuário
   const navigate = useNavigate();
@@ -23,7 +25,7 @@ const Navbar = () => {
           viewport={{ once: true }}
         >
           <img
-            src="../../public/LogoGreenCoin.png"
+            src={logo}
             style={{ width: '30px', height: '30px' }}
           ></img>
           <span className="green-color fw-bold">GreenCoin</span>
