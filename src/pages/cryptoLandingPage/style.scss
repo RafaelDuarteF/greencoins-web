@@ -102,7 +102,6 @@
 
 #gallery {
   background-color: $backgroundPrimaryColor;
-  border-top: 1px solid $primaryColor;
 
   .carousel-container {
     position: relative;
@@ -114,7 +113,6 @@
 #videos {
   background-color: $backgroundPrimaryColor;
   min-height: 100vh;
-  border-top: 1px solid $primaryColor;
 
   h2 {
     color: $primaryColor;

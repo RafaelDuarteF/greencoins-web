@@ -68,6 +68,7 @@ function CryptoLanding() {
         <TechnicalDetailsSection transactions={transactions} />
       </section>
       <section id="gallery" className="position-relative">
+        <StarsCanvas />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
