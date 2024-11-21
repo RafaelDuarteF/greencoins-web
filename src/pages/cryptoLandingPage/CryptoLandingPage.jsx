@@ -64,7 +64,6 @@ function CryptoLanding() {
         <AboutSection />
       </section>
       <section id="details" className="position-relative overflow-hidden">
-        {/* <StarsCanvas /> */}
         <TechnicalDetailsSection transactions={transactions} />
       </section>
       <section id="gallery" className="position-relative">
