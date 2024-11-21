@@ -44,16 +44,14 @@ function TechnicalDetailsSection({ transactions }) {
     transactionsPerMonth: transactionsPerMonth,
   };
 
-  // Corrigindo a ordenação das datas
   const sortedLabels = Object.keys(cryptoDetails.transactionsPerMonth).sort((a, b) => {
     const [yearA, monthA] = a.split('-').map(Number);
     const [yearB, monthB] = b.split('-').map(Number);
     
-    // Primeiro compara o ano
     if (yearA !== yearB) {
       return yearA - yearB;
     }
-    // Se o ano for igual, compara o mês
+
     return monthA - monthB;
   });
 
@@ -92,7 +90,6 @@ function TechnicalDetailsSection({ transactions }) {
           <p className="text-center text-secondary mb-5">Confira os detalhes técnicos <b className='glow-text green-color'>reais</b> da GreenCoin, incluindo informações sobre a rede, transações recentes em tempo real e estatísticas de transações por mês.</p>
 
           <div className="row g-4">
-            {/* Left Column - Main Stats */}
             <div className="col-md-6">
               <div className="technical-details-card h-100">
                 <div className="d-flex flex-column gap-4">
@@ -131,7 +128,6 @@ function TechnicalDetailsSection({ transactions }) {
               </div>
             </div>
 
-            {/* Right Column - Recent Transactions */}
             <div className="col-md-6">
               <div className="technical-details-card h-100">
                 <div className="d-flex align-items-center gap-2 mb-4">
@@ -176,7 +172,6 @@ function TechnicalDetailsSection({ transactions }) {
               </div>
             </div>
 
-            {/* Transactions per Month Graph */}
             <div className="col-12">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
