@@ -3,6 +3,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
+import logo from '../assets/greencoin.png';
+
 const Navbar = () => {
   const username = localStorage.getItem('username'); // Recupera o nome de usuário
   const navigate = useNavigate();
@@ -23,10 +25,7 @@ const Navbar = () => {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <div
-            className="rounded-circle bg-green-color me-2"
-            style={{ width: '30px', height: '30px' }}
-          ></div>
+            <img src={logo} alt="GreenCoins" className='me-2' style={{ width: '30px', height: '30px' }} />
           <span className="green-color fw-bold">GreenCoins</span>
         </motion.a>
         {/* Botão para toggle do menu */}

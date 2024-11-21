@@ -18,6 +18,7 @@ function FloatingCoins({ coinsCount }) {
     return { valor1, valor2 };
   }
 
+  // Função para pegar imagens aleatórias
   function generateRandomImage() {
     const randomNumber = Math.floor(Math.random() * (maxImageCoins - minImageCoins + 1)) + minImageCoins;
     return randomNumber;
