@@ -22,12 +22,10 @@ function Login() {
   const validateForm = () => {
     const newErrors = {};
 
-    // Username validation
     if (!formData.username) {
       newErrors.username = 'Nome de usuário é obrigatório';
     }
 
-    // Password validation
     if (!formData.password) {
       newErrors.password = 'Senha é obrigatória';
     } else if (formData.password.length < 6) {
@@ -43,6 +41,7 @@ function Login() {
   
     if (validateForm()) {
       setLoading(true);
+      
       // Simulando uma chamada API
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setLoading(false);
