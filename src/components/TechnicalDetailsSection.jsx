@@ -2,9 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Hash, Clock, Activity, Database } from 'lucide-react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+);
 
 function TechnicalDetailsSection({ transactions }) {
   const [transactionsPerMonth, setTransactionsPerMonth] = useState({});
@@ -17,12 +34,27 @@ function TechnicalDetailsSection({ transactions }) {
       const year = date.getFullYear();
       const key = `${year}-${month}`;
 
-      transactionPerMonth[key] = transactionPerMonth[key] ? transactionPerMonth[key] + 1 : 1;
+      transactionPerMonth[key] = transactionPerMonth[key]
+        ? transactionPerMonth[key] + 1
+        : 1;
     });
 
     const currentMonth = new Date().getMonth();
     const currentYear = new Date().getFullYear();
-    const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+    const months = [
+      '01',
+      '02',
+      '03',
+      '04',
+      '05',
+      '06',
+      '07',
+      '08',
+      '09',
+      '10',
+      '11',
+      '12',
+    ];
     const lastMonths = months.slice(currentMonth - 4, currentMonth);
 
     lastMonths.forEach((month) => {
@@ -37,32 +69,38 @@ function TechnicalDetailsSection({ transactions }) {
 
   const cryptoDetails = {
     hash: transactions?.[0]?.address,
-    creationDate: handleHexTimestamp(transactions?.[transactions.length -1]?.timeStamp),
+    creationDate: handleHexTimestamp(
+      transactions?.[transactions.length - 1]?.timeStamp,
+    ),
     totalTransactions: transactions?.length ?? 0,
-    lastBlockHeight: parseInt(transactions?.[0]?.blockNumber , 16) ?? 0,
-    consensusAlgorithm: "Proof of Stake (PoS)",
+    lastBlockHeight: parseInt(transactions?.[0]?.blockNumber, 16) ?? 0,
+    consensusAlgorithm: 'Proof of Stake (PoS)',
     transactionsPerMonth: transactionsPerMonth,
   };
 
   // Corrigindo a ordenação das datas
-  const sortedLabels = Object.keys(cryptoDetails.transactionsPerMonth).sort((a, b) => {
-    const [yearA, monthA] = a.split('-').map(Number);
-    const [yearB, monthB] = b.split('-').map(Number);
-    
-    // Primeiro compara o ano
-    if (yearA !== yearB) {
-      return yearA - yearB;
-    }
-    // Se o ano for igual, compara o mês
-    return monthA - monthB;
-  });
+  const sortedLabels = Object.keys(cryptoDetails.transactionsPerMonth).sort(
+    (a, b) => {
+      const [yearA, monthA] = a.split('-').map(Number);
+      const [yearB, monthB] = b.split('-').map(Number);
+
+      // Primeiro compara o ano
+      if (yearA !== yearB) {
+        return yearA - yearB;
+      }
+      // Se o ano for igual, compara o mês
+      return monthA - monthB;
+    },
+  );
 
   const data = {
     labels: sortedLabels,
     datasets: [
       {
         label: 'Transações por Mês',
-        data: sortedLabels.map(key => cryptoDetails.transactionsPerMonth[key]),
+        data: sortedLabels.map(
+          (key) => cryptoDetails.transactionsPerMonth[key],
+        ),
         fill: true,
         borderColor: '#28a745',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -85,46 +123,70 @@ function TechnicalDetailsSection({ transactions }) {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-center mb-5 display-4 section-title glow-text">
-            Detalhes Técnicos
+          <h2 className="text-center mb-3 display-4 section-title glow-text">
+            Informações Técnicos
           </h2>
 
-          <p className="text-center text-secondary mb-5">Confira os detalhes técnicos <b className='glow-text green-color'>reais</b> da GreenCoin, incluindo informações sobre a rede, transações recentes em tempo real e estatísticas de transações por mês.</p>
+          <p className="text-center text-secondary mb-4">
+            Confira as informações técnicas{' '}
+            <b className="glow-text green-color">reais</b> da GreenCoin,
+            incluindo informações sobre a rede, transações recentes em tempo
+            real e estatísticas de transações por mês.
+          </p>
 
           <div className="row g-4">
             {/* Left Column - Main Stats */}
             <div className="col-md-6">
-              <div className="technical-details-card h-100">
+              <div className="technical-details-card h-60">
                 <div className="d-flex flex-column gap-4">
                   <div className="d-flex align-items-center gap-3">
                     <Hash size={24} className="text-green" />
                     <div>
-                      <p className="mb-1 fw-medium text-green">Token Contract Hash</p>
-                      <p className="mb-0 small font-monospace text-gray text-truncate" style={{ maxWidth: '80%' }}>{cryptoDetails.hash}</p>
+                      <p className="mb-1 fw-medium text-green">
+                        Token Contract Hash
+                      </p>
+                      <p
+                        className="mb-0 small font-monospace text-gray text-truncate"
+                        style={{ maxWidth: '80%' }}
+                      >
+                        {cryptoDetails.hash}
+                      </p>
                     </div>
                   </div>
 
                   <div className="d-flex align-items-center gap-3">
                     <Clock size={24} className="text-green" />
                     <div>
-                      <p className="mb-1 fw-medium text-green">Data de Criação</p>
-                      <p className="mb-0 small text-gray">{cryptoDetails.creationDate}</p>
+                      <p className="mb-1 fw-medium text-green">
+                        Data de Criação
+                      </p>
+                      <p className="mb-0 small text-gray">
+                        {cryptoDetails.creationDate}
+                      </p>
                     </div>
                   </div>
 
                   <div className="d-flex align-items-center gap-3">
                     <Activity size={24} className="text-green" />
                     <div>
-                      <p className="mb-1 fw-medium text-green">Total de Transações</p>
-                      <p className="mb-0 small text-gray">{cryptoDetails.totalTransactions}</p>
+                      <p className="mb-1 fw-medium text-green">
+                        Total de Transações
+                      </p>
+                      <p className="mb-0 small text-gray">
+                        {cryptoDetails.totalTransactions}
+                      </p>
                     </div>
                   </div>
 
                   <div className="d-flex align-items-center gap-3">
                     <Database size={24} className="text-green" />
                     <div>
-                      <p className="mb-1 fw-medium text-green">Altura do Último Bloco</p>
-                      <p className="mb-0 small text-gray">{cryptoDetails.lastBlockHeight}</p>
+                      <p className="mb-1 fw-medium text-green">
+                        Altura do Último Bloco
+                      </p>
+                      <p className="mb-0 small text-gray">
+                        {cryptoDetails.lastBlockHeight}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -136,7 +198,9 @@ function TechnicalDetailsSection({ transactions }) {
               <div className="technical-details-card h-100">
                 <div className="d-flex align-items-center gap-2 mb-4">
                   <Terminal size={24} className="text-green" />
-                  <h3 className="mb-0 h4 fw-bold text-green">Transações Recentes</h3>
+                  <h3 className="mb-0 h4 fw-bold text-green">
+                    Transações Recentes
+                  </h3>
                 </div>
 
                 <div className="d-flex flex-column gap-3 transactions-div">
@@ -150,24 +214,36 @@ function TechnicalDetailsSection({ transactions }) {
                     >
                       <div className="row g-2">
                         <div className="col-6">
-                          <p className="mb-1 small text-green">Hash da Transação</p>
-                          <p className="mb-0 small font-monospace text-truncate text-gray">{tx.transactionHash}</p>
+                          <p className="mb-1 small text-green">
+                            Hash da Transação
+                          </p>
+                          <p className="mb-0 small font-monospace text-truncate text-gray">
+                            {tx.transactionHash}
+                          </p>
                         </div>
                         <div className="col-6">
                           <p className="mb-1 small text-green">Hash do Bloco</p>
-                          <p className="mb-0 small text-gray text-truncate">{tx.blockHash}</p>
+                          <p className="mb-0 small text-gray text-truncate">
+                            {tx.blockHash}
+                          </p>
                         </div>
                         <div className="col-6">
                           <p className="mb-1 small text-green">Data e Hora</p>
-                          <p className="mb-0 small text-gray">{handleHexTimestamp(tx.timeStamp)}</p>
+                          <p className="mb-0 small text-gray">
+                            {handleHexTimestamp(tx.timeStamp)}
+                          </p>
                         </div>
                         <div className="col-6">
                           <p className="mb-1 small text-green">Status</p>
                           <p className="mb-0 small text-gray">Concluído</p>
                         </div>
                         <div className="col-6">
-                          <p className="mb-1 small text-green">Altura do bloco</p>
-                          <p className="mb-0 small text-gray">{parseInt(tx.blockNumber, 16)}</p>
+                          <p className="mb-1 small text-green">
+                            Altura do bloco
+                          </p>
+                          <p className="mb-0 small text-gray">
+                            {parseInt(tx.blockNumber, 16)}
+                          </p>
                         </div>
                       </div>
                     </motion.div>
@@ -177,34 +253,38 @@ function TechnicalDetailsSection({ transactions }) {
             </div>
 
             {/* Transactions per Month Graph */}
-            <div className="col-12">
+            <div className="col-md-6">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
                 className="technical-details-card"
               >
-                <h4 className="fw-medium text-green mb-4">Transações por Mês</h4>
-                <div className="chart-container">
+                <h4 className="fw-medium text-green mb-4">
+                  Transações por Mês
+                </h4>
+                <div className="chart-container" style={{ maxHeight: 300 }}>
                   <Line data={data} />
                 </div>
               </motion.div>
             </div>
-
-          </div>
-          <div className="col-12 mt-4">
-            <motion.div
+            <div className="d-flex col-md-6">
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
-                className="technical-details-card"
+                className="technical-details-card col-12"
               >
-                <div className="row g-4">
-                  <div className="col-md-6">
-                    <h4 className="fw-medium text-green">Algoritmo de Consenso</h4>
-                    <p className="text-gray">{cryptoDetails.consensusAlgorithm}</p>
+                <div className="d-flex flex-column gap-3">
+                  <div>
+                    <h4 className="fw-medium text-green">
+                      Algoritmo de Consenso
+                    </h4>
+                    <p className="text-gray">
+                      {cryptoDetails.consensusAlgorithm}
+                    </p>
                   </div>
-                  <div className="col-md-6">
+                  <div>
                     <h4 className="fw-medium text-green">Segurança da Rede</h4>
                     <div className="progress custom-progress-bar-container">
                       <div
@@ -216,10 +296,13 @@ function TechnicalDetailsSection({ transactions }) {
                         aria-valuemax="100"
                       ></div>
                     </div>
-                    <p className="small text-gray mt-2">Status da Rede: 100% seguro</p>
+                    <p className="small text-gray mt-2">
+                      Status da Rede: 100% seguro
+                    </p>
                   </div>
                 </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>

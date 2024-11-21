@@ -19,7 +19,9 @@ function FloatingCoins({ coinsCount }) {
   }
 
   function generateRandomImage() {
-    const randomNumber = Math.floor(Math.random() * (maxImageCoins - minImageCoins + 1)) + minImageCoins;
+    const randomNumber =
+      Math.floor(Math.random() * (maxImageCoins - minImageCoins + 1)) +
+      minImageCoins;
     return randomNumber;
   }
 
@@ -38,7 +40,16 @@ function FloatingCoins({ coinsCount }) {
   }, [sizeCoins]);
 
   return (
-    <div className="position-absolute" style={{ userSelect: 'none', height: '60%', left: '30%', width: '70%', top: 10, zIndex: 1 }}>
+    <div
+      className="position-absolute"
+      style={{
+        userSelect: 'none',
+        height: '100%',
+        width: '100%',
+        top: 10,
+        zIndex: -1,
+      }}
+    >
       {sizeCoins.length > 0 &&
         sizeCoins.map((coin, index) => (
           <motion.div
@@ -59,11 +70,16 @@ function FloatingCoins({ coinsCount }) {
               style={{
                 width: `${coin.valor2}px`,
                 height: `${coin.valor2}px`,
-                transform: 'rotate(12deg)',
+                transform: `rotate(${Math.random() * 360}deg)`,
                 userSelect: 'none',
               }}
             >
-              <img className="coin-div" src={'/images_hero/greenCoin' + generateRandomImage() + '.png'} alt="GreenCoin" style={{ width: '100%', userSelect: 'none' }} />
+              <img
+                className="coin-div"
+                src={'/images_hero/greenCoin' + generateRandomImage() + '.png'}
+                alt="GreenCoin"
+                style={{ width: '100%', userSelect: 'none' }}
+              />
             </div>
           </motion.div>
         ))}

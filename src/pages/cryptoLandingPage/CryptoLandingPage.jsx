@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.scss';
 import { motion } from 'framer-motion';
@@ -26,25 +26,30 @@ function CryptoLanding() {
   }, [isLogged]);
 
   useEffect(() => {
-    fetch('https://api.bscscan.com/api?module=logs&action=getLogs&apikey=73YYMDT87AZZEWXHVRYN77ZU8QBHYJXDP1&address=0xbd9949be9aff6a500c9b13c3a11174734fad16a8&topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef')
-      .then(response => {
+    fetch(
+      'https://api.bscscan.com/api?module=logs&action=getLogs&apikey=73YYMDT87AZZEWXHVRYN77ZU8QBHYJXDP1&address=0xbd9949be9aff6a500c9b13c3a11174734fad16a8&topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
+    )
+      .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log(data.result);
         setTransactions(data.result.reverse());
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('There was a problem with the fetch operation:', error);
       });
   }, []);
 
   return (
     <main className="min-vh-100 min-vw-100">
-      <section id="hero" className="min-vh-100 min-vw-100 position-relative overflow-hidden">
+      <section
+        id="hero"
+        className="min-vh-100 min-vw-100 position-relative overflow-hidden"
+      >
         <header className="top-0 start-0 w-100">
           <Navbar />
         </header>
@@ -62,10 +67,10 @@ function CryptoLanding() {
       </section>
       <section id="gallery" className="position-relative">
         <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <ImageCarousel />
         </motion.div>
       </section>

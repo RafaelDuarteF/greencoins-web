@@ -5,11 +5,11 @@ import { OrbitControls, useGLTF } from '@react-three/drei';
 const Model = () => {
   const modelRef = useRef();
 
-  const { scene } = useGLTF('/animation/GreenCoin3.glb'); 
+  const { scene } = useGLTF('/animation/GreenCoin3.glb');
 
   useFrame(() => {
     if (modelRef.current) {
-      modelRef.current.rotation.y += 0.01; 
+      modelRef.current.rotation.y += 0.01;
     }
   });
 
@@ -19,9 +19,9 @@ const Model = () => {
 const Scene = () => {
   return (
     <Canvas
-      camera={{ position: [0, 1, 5], fov: 75 }}
+      camera={{ position: [0, 1, 12], fov: 35 }}
       style={{ width: '100%', height: '60vh' }}
-      className='animation-coin-canva'
+      className="animation-coin-canva"
     >
       {/* Luzes */}
       <ambientLight intensity={2} />
@@ -29,7 +29,11 @@ const Scene = () => {
 
       {/* Modelo e Controles */}
       <Model />
-      <OrbitControls enableDamping={true} enableZoom={false} dampingFactor={0.05} />
+      <OrbitControls
+        enableDamping={true}
+        enableZoom={false}
+        dampingFactor={0.05}
+      />
     </Canvas>
   );
 };

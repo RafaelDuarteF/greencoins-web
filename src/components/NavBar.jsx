@@ -1,4 +1,3 @@
-import React from 'react';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark py-3">
+    <nav className="navbar navbar-expand-lg navbar-dark pb-0 py-md-3">
       <div className="container">
         <motion.a
           className="navbar-brand d-flex align-items-center logo"
@@ -23,11 +22,11 @@ const Navbar = () => {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <div
-            className="rounded-circle bg-green-color me-2"
+          <img
+            src="../../public/LogoGreenCoin.png"
             style={{ width: '30px', height: '30px' }}
-          ></div>
-          <span className="green-color fw-bold">GreenCoins</span>
+          ></img>
+          <span className="green-color fw-bold">GreenCoin</span>
         </motion.a>
         {/* Botão para toggle do menu */}
         <button
@@ -115,28 +114,34 @@ const Navbar = () => {
               viewport={{ once: true }}
             >
               {username ? (
-                <span className="nav-link username-logged glow-text">Olá, {username}</span> // Exibe o nome do usuário
+                <span className="nav-link username-logged glow-text">
+                  Olá, {username}
+                </span> // Exibe o nome do usuário
               ) : (
-                <a className="nav-link nav-link-entrar" onClick={() => navigate(`/login`)}>
+                <a
+                  className="nav-link nav-link-entrar"
+                  onClick={() => navigate(`/login`)}
+                >
                   <b>Entrar</b>
                 </a>
               )}
             </motion.li>
-            {
-              username ? (
-                <motion.li
-                  className="nav-item"
-                  initial={{ opacity: 0, y: -10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.2 }}
-                  viewport={{ once: true }}
+            {username ? (
+              <motion.li
+                className="nav-item"
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+                viewport={{ once: true }}
+              >
+                <a
+                  className="nav-link nav-link-sair"
+                  onClick={handleRemoveUsername}
                 >
-                  <a className="nav-link nav-link-sair" onClick={handleRemoveUsername}>
-                    Sair
-                  </a>
-                </motion.li>
-              ) : null
-            }
+                  Sair
+                </a>
+              </motion.li>
+            ) : null}
           </ul>
         </motion.div>
       </div>
