@@ -4,15 +4,16 @@ import './style.scss';
 import { motion } from 'framer-motion';
 import swal from 'sweetalert';
 
-import Navbar from '../../components/NavBar';
-import HeroSection from '../../components/HeroSection';
-import GradientOverlay from '../../components/GradientOverlay';
-import AboutSection from '../../components/AboutSection';
-import TechnicalDetailsSection from '../../components/TechnicalDetailsSection';
+import Navbar from '../../components/sections/NavBar';
+import HeroSection from '../../components/sections/HeroSection';
+import GradientOverlay from '../../components/sections/GradientOverlay';
+import AboutSection from '../../components/sections/AboutSection';
+import TechnicalDetailsSection from '../../components/sections/TechnicalDetailsSection';
 import { useParams } from 'react-router-dom';
-import ImageCarousel from '../../components/CarouselSection';
-import VideoSection from '../../components/VideoSection';
-import Footer from '../../components/Footer';
+import ImageCarousel from '../../components/sections/CarouselSection';
+import VideoSection from '../../components/sections/VideoSection';
+import Footer from '../../components/sections/Footer';
+import StarsCanvas from '../../components/general/Stars';
 
 function CryptoLanding() {
   const { isLogged } = useParams();
@@ -63,6 +64,7 @@ function CryptoLanding() {
         <AboutSection />
       </section>
       <section id="details" className="position-relative overflow-hidden">
+        {/* <StarsCanvas /> */}
         <TechnicalDetailsSection transactions={transactions} />
       </section>
       <section id="gallery" className="position-relative">
@@ -75,6 +77,7 @@ function CryptoLanding() {
         </motion.div>
       </section>
       <section id="videos" className="position-relative">
+        <StarsCanvas />
         <VideoSection />
       </section>
       <Footer />

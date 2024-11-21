@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { motion } from 'framer-motion';
-import greenCoin from '../assets/greencoin2.png';
+import greenCoin from '../../assets/greencoin2.png';
 
 const AboutSection = () => {
   return (

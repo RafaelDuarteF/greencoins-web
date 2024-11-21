@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { motion } from 'framer-motion';
-import greenCoin from '../assets/greencoin.png';
+import greenCoin from '../../assets/greencoin.png';
 
 function FloatingCoins({ coinsCount }) {
   const min = 20; // valor mínimo

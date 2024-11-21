@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Modal } from 'react-bootstrap';
 
-import videoImage1 from '../assets/video1.png';
-import videoImage2 from '../assets/video2.png';
+import videoImage1 from '../../assets/video1.png';
+import videoImage2 from '../../assets/video2.png';
 
 const VideoSection = () => {
   const [show1, setShow1] = useState(false);
