@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 import logo from '../../assets/LogoGreenCoin.png';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
   const username = localStorage.getItem('username'); // Recupera o nome de usuário
@@ -13,13 +14,33 @@ const Navbar = () => {
     navigate(`/`); // Redireciona para a página inicial
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // Largura abaixo de 768px é considerada mobile
+    };
+
+    // Verifica ao carregar a página
+    checkMobile();
+
+    // Adiciona o event listener para mudar a cada resize
+    window.addEventListener('resize', checkMobile);
+
+    // Limpeza do event listener quando o componente for desmontado
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark pb-0 py-md-3">
       <div className="container">
         <motion.a
           className="navbar-brand d-flex align-items-center logo"
           href="#"
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
