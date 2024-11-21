@@ -124,7 +124,7 @@ function TechnicalDetailsSection({ transactions }) {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-center mb-3 display-4 section-title glow-text">
-            Informações Técnicos
+            Informações Técnicas
           </h2>
 
           <p className="text-center text-secondary mb-4">

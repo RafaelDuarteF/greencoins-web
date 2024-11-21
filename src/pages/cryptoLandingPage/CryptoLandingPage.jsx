@@ -61,6 +61,7 @@ function CryptoLanding() {
         id="sobre"
         className="position-relative overflow-hidden d-flex align-items-center"
       >
+        <StarsCanvas />
         <AboutSection />
       </section>
       <section id="details" className="position-relative overflow-hidden">
