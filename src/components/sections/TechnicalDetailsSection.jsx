@@ -136,7 +136,7 @@ function TechnicalDetailsSection({ transactions }) {
 
           <div className="row g-4">
             <div className="col-md-6">
-              <div className="technical-details-card h-60">
+              <div className="technical-details-card h-100">
                 <div className="d-flex flex-column gap-4">
                   <div className="d-flex align-items-center gap-3">
                     <Hash size={24} className="text-green" />
