@@ -105,6 +105,7 @@
 
   .carousel-container {
     position: relative;
+    border-top: 1px solid $primaryColor;
     z-index: 2;
     width: 100%;
   }
